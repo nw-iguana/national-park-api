@@ -15,9 +15,17 @@ function watchForm(){
 function getParks(results, maxResults=10) {
     const url = `https://developer.nps.gov/api/v1/parks?${results}limit=${maxResults-1}&api_key=${apiKey}`
     fetch (url)
-    .then(response => response.json())
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error(response.statusText)
+    })
     .then(responseJson => renderResults(responseJson))
-}
+    .catch(error => console.log(error))
+  }
+
+  
 
 function renderResults(responseJson){
     
