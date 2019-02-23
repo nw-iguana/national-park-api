@@ -1,3 +1,11 @@
-* {
-    outline: 1px dotted red;
+.form {  
+    margin-bottom: 100px;
+}
+
+select#js-search-term.dropdown {
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    /* height: 400px; */
+    
 }
