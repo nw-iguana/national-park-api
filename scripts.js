@@ -22,7 +22,9 @@ function getParks(results, maxResults=10) {
         throw new Error(response.statusText)
     })
     .then(responseJson => renderResults(responseJson))
-    .catch(error => console.log(error))
+    .catch(error => {
+        $('#error-message').html(`something went wrong: ${error.message}`)
+    })
   }
 
   
@@ -47,9 +49,8 @@ function renderResults(responseJson){
     
 
 
-function loadPage() {
-watchForm();
-}
 
-console.log('Javascript file is working');
-$(loadPage);
+$(watchForm);
+
+
+
